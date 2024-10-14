@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Criticografo_AMG.MainPage"
+             BackgroundColor="White">
+
+    <StackLayout Padding="20">
+        <Label Text="Actividad: Criticografo!"
+               FontSize="Large"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               Padding="0,10,0,20"/>
+
+        <Entry x:Name="NombreEntry"
+               Placeholder="Ingresa tu nombre"
+               TextColor="Black"
+               HorizontalOptions="FillAndExpand"/>
+
+        <Label Text="Género:"
+               FontSize="Medium"
+               TextColor="Black"
+               Padding="0,10,0,5"/>
+        <StackLayout Orientation="Horizontal" Padding="0,0,0,5">
+            <RadioButton x:Name="HombreRadio"
+                         Content="Hombre"
+                         GroupName="Genero"
+                         Margin="0,0,20,0"
+                         TextColor="Black"
+                         CheckedChanged="OnGenderSelectionChanged"/>
+            <RadioButton x:Name="MujerRadio"
+                         Content="Mujer"
+                         GroupName="Genero"
+                         TextColor="Black"
+                         CheckedChanged="OnGenderSelectionChanged"/>
+        </StackLayout>
+
+        <Label Text="Atributos:"
+               FontSize="Medium"
+               TextColor="Black"
+               Padding="0,20,0,5"/>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+
+            <CheckBox x:Name="AltoCheckBox" Grid.Row="0" Grid.Column="0" Margin="10" />
+            <Label x:Name="AltoLabel" Text="Alto" Grid.Row="0" Grid.Column="1" VerticalOptions="Center" TextColor="Black"/>
+
+            <CheckBox x:Name="FeoCheckBox" Grid.Row="0" Grid.Column="2" Margin="10" />
+            <Label x:Name="FeoLabel" Text="Feo" Grid.Row="0" Grid.Column="3" VerticalOptions="Center" TextColor="Black"/>
+
+            <CheckBox x:Name="ListoCheckBox" Grid.Row="1" Grid.Column="0" Margin="10" />
+            <Label x:Name="ListoLabel" Text="Listo" Grid.Row="1" Grid.Column="1" VerticalOptions="Center" TextColor="Black"/>
+
+            <CheckBox x:Name="ExtravaganteCheckBox" Grid.Row="1" Grid.Column="2" Margin="10" />
+            <Label x:Name="ExtravaganteLabel" Text="Extravagante" Grid.Row="1" Grid.Column="3" VerticalOptions="Center" TextColor="Black"/>
+
+            <CheckBox x:Name="RaroCheckBox" Grid.Row="2" Grid.Column="0" Margin="10" />
+            <Label x:Name="RaroLabel" Text="Raro" Grid.Row="2" Grid.Column="1" VerticalOptions="Center" TextColor="Black"/>
+
+            <CheckBox x:Name="GrandeCheckBox" Grid.Row="2" Grid.Column="2" Margin="10" />
+            <Label x:Name="GrandeLabel" Text="Grande" Grid.Row="2" Grid.Column="3" VerticalOptions="Center" TextColor="Black"/>
+        </Grid>
+
+        <Button Text="¡Hacer Crítica!"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="Gray"
+                TextColor="Black"
+                Margin="0,20,0,0"
+                Clicked="OnCritiqueButtonClicked"/>
+
+        <Label x:Name="ResultadoLabel"
+               FontSize="Medium"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               Padding="10,20,10,0"/>
+    </StackLayout>
+
+</ContentPage>
+
+
