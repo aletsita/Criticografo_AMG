@@ -17,8 +17,7 @@ namespace Criticografo_AMG
                 InitializeComponent();
             }
 
-            // Método para actualizar los atributos según el género seleccionado
-            private void OnGenderSelectionChanged(object sender, CheckedChangedEventArgs e)
+            private void SeleccionGenero(object sender, CheckedChangedEventArgs e)
             {
                 if (HombreRadio.IsChecked)
                 {
@@ -40,46 +39,41 @@ namespace Criticografo_AMG
                 }
             }
 
-            // Método que se ejecuta al presionar el botón "¡Hacer Crítica!"
-            private void OnCritiqueButtonClicked(object sender, EventArgs e)
+            private void SeleccionAtributos(object sender, EventArgs e)
             {
-                // Recolectar el nombre
-                string nombre = NombreEntry.Text;
-                if (string.IsNullOrWhiteSpace(nombre))
+                string Nombre = NombreEntry.Text;
+                if (string.IsNullOrWhiteSpace(Nombre))
                 {
-                    ResultadoLabel.Text = "Por favor ingresa un nombre.";
+                    ResultadoLabel.Text = "Ingresa un nombre válido.";
                     return;
                 }
 
-                // Recolectar el género
-                string genero = "";
+                string Genero = "";
                 if (HombreRadio.IsChecked)
-                    genero = "Hombre";
+                    Genero = "Hombre";
                 else if (MujerRadio.IsChecked)
-                    genero = "Mujer";
+                Genero = "Mujer";
                 else
                 {
-                    ResultadoLabel.Text = "Por favor selecciona un género.";
+                    ResultadoLabel.Text = "Selecciona un género.";
                     return;
                 }
 
-                // Recolectar atributos seleccionados
-                List<string> atributos = new List<string>();
-                if (AltoCheckBox.IsChecked) atributos.Add(AltoLabel.Text);
-                if (FeoCheckBox.IsChecked) atributos.Add(FeoLabel.Text);
-                if (ListoCheckBox.IsChecked) atributos.Add(ListoLabel.Text);
-                if (ExtravaganteCheckBox.IsChecked) atributos.Add(ExtravaganteLabel.Text);
-                if (RaroCheckBox.IsChecked) atributos.Add(RaroLabel.Text);
-                if (GrandeCheckBox.IsChecked) atributos.Add(GrandeLabel.Text);
+                List<string> Atributos = new List<string>();
+                if (AltoCheckBox.IsChecked) Atributos.Add(AltoLabel.Text);
+                if (FeoCheckBox.IsChecked) Atributos.Add(FeoLabel.Text);
+                if (ListoCheckBox.IsChecked) Atributos.Add(ListoLabel.Text);
+                if (ExtravaganteCheckBox.IsChecked) Atributos.Add(ExtravaganteLabel.Text);
+                if (RaroCheckBox.IsChecked) Atributos.Add(RaroLabel.Text);
+                if (GrandeCheckBox.IsChecked) Atributos.Add(GrandeLabel.Text);
 
-                if (atributos.Count == 0)
+                if (Atributos.Count == 0)
                 {
-                    ResultadoLabel.Text = "Por favor selecciona al menos un atributo.";
+                    ResultadoLabel.Text = "Selecciona al menos un atributo.";
                     return;
                 }
 
-                // Mostrar la crítica en la etiqueta de resultado
-                string mensaje = $"Nombre: {nombre}\nGénero: {genero}\nAtributos: {string.Join(", ", atributos)}";
+                string mensaje = $"Nombre: {Nombre}\nGénero: {Genero}\nAtributos: {string.Join(", ", Atributos)}";
                 ResultadoLabel.Text = mensaje;
             }
         }
